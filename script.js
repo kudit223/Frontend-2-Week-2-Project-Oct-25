@@ -2,7 +2,12 @@ const email = document.querySelector('#email')
 const password = document.querySelector('#password');
 const inValidEmail = document.querySelector('#inValidEmail');
 const inValidPassword = document.querySelector('#inValidPassword');
-const validEmailAndPassword=document.querySelector('#validEmailAndPassword');
+const validEmailAndPassword = document.querySelector('#validEmailAndPassword');
+const submitBtn = document.querySelector('#submitBtn');
+const backBtn=document.querySelector('#backBtn');
+const okayBtn= document.querySelector('#okayBtn');
+
+
 
 let validEmail = false;
 let validPassword = false;
@@ -19,9 +24,9 @@ email.addEventListener('input', (e) => {
         validEmail = true;
         inValidEmail.style.display = 'none';
     }
-    if(validEmail&&validPassword)
-    validEmailAndPassword.style.display='block';
-    else validEmailAndPassword.style.display='none';
+
+    allGoodToGo();
+    setModal();
 
 })
 
@@ -36,8 +41,34 @@ password.addEventListener('input', (e) => {
         inValidPassword.style.display = 'none';
     }
 
-    if(validEmail&&validPassword)
-    validEmailAndPassword.style.display='block';
-    else validEmailAndPassword.style.display='none';
+    allGoodToGo()
+    setModal();
 
 })
+
+backBtn.addEventListener('click',(e)=>{
+    email.value="";
+    password.value="";
+    validEmail=false;
+    validPassword=false;
+    allGoodToGo();
+    setModal();
+})
+
+okayBtn.addEventListener('click',(e)=>{
+    alert('successful signup!');
+})
+
+function allGoodToGo() {
+    if (validEmail && validPassword)
+        validEmailAndPassword.style.display = 'block';
+    else validEmailAndPassword.style.display = 'none';
+}
+
+
+function setModal() {
+    if (validEmail && validPassword)
+        submitBtn.setAttribute('data-bs-toggle', 'modal');
+    else submitBtn.setAttribute('data-bs-toggle', '')
+}
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SignUp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,18 +12,33 @@
     <form action="#" class="m-5 border border-2 border-dark rounded-3 p-4">
         <div class="mb-4">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control border-dark" name="" id="email" placeholder="Example@email.com">
+            <input type="email" class="form-control border-dark" name="" id="email" placeholder="Example@email.com" required>
             <div id="inValidEmail" class="text-danger fw-bold">Make sure email is more than 3 characters and has @ and a .</div>
         </div>
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control border-dark" name="" id="password" placeholder="Your Password">
+            <input type="password" class="form-control border-dark" name="" id="password" placeholder="Your Password" required>
             <div id="inValidPassword" class="text-danger fw-bold">Make sure password is more than 8 characters.</div>
         </div>
         <div id="validEmailAndPassword" class="text-success fw-bold my-3">All good to go</div>
-        <button type="submit" id="submitBtn" class="btn border border-2 border-dark px-5">Submit</button>
+        <button type="submit" id="submitBtn" class="btn border border-2 border-dark px-5" data-bs-toggle="" data-bs-target="#sumbitModal">Submit</button>
 
     </form>
+
+    <div id="sumbitModal" class="modal fade" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #1dfa01;">
+                    <h5 class="modal-title m-auto"> Presses "okay" for SignUp</h5>
+                </div>
+                <div class="modal-footer m-auto">
+                    <button id="backBtn" class="btn btn-secondary px-5 me-5" data-bs-dismiss="modal">back</button>
+                    <button id="okayBtn" class="btn btn-primary px-5">okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
